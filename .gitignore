@@ -79,4 +79,3 @@ env.bak/
 venv.bak/
 
 # generated migrations
-back/data_source/migrations/*
