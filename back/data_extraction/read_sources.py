@@ -15,7 +15,7 @@ def read_csv_source(file_path, cols=[], filters={}, null_values={}):
 
 
 if __name__ == "__main__":
-    base_file = './data/general_migration0016.csv'
+    base_file = './sources/general_migration0016.csv'
     
     # general input migration
     filters = {}
@@ -61,7 +61,7 @@ if __name__ == "__main__":
     general_input_df = read_csv_source(base_file, cols, filters, null_values)
 
     # type casting
-    general_input_df['Value'] = general_input_df['Value'] = general_input_df['Value'].fillna(0.0).astype(int)
+    general_input_df['Value'] = general_input_df['Value'].fillna(0.0).astype(int)
     
 
     # general input migration
@@ -77,4 +77,7 @@ if __name__ == "__main__":
     general_output_df = read_csv_source(base_file, cols, filters, null_values)
 
     # type casting
-    general_output_df['Value'] = general_input_df['Value'] = general_input_df['Value'].fillna(0.0).astype(int)
+    general_output_df['Value'] = general_output_df['Value'].fillna(0.0).astype(int)
+
+    print(general_input_df.head())
+    print(general_output_df.head())
