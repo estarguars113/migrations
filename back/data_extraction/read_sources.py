@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # coding=utf-8
 
 
@@ -6,6 +7,12 @@ import pandas as pd
 #custom models
 from data_admin.models import CountryModel, Migration, db
 
+=======
+import pandas as pd
+
+#custom models
+from data_management.models import CountryModel, Migration
+>>>>>>> 1357aa6a138b9dae904c5596a5f29c224606ed0e
 
 def read_csv_source(file_path, cols=[], filters={}, null_values={}):
     df = pd.read_csv(file_path, na_values=null_values)
@@ -26,7 +33,11 @@ def get_country(short_name):
 
 
 if __name__ == "__main__":
+<<<<<<< HEAD
     base_file = './data_extraction/sources/general_migration0016.csv'
+=======
+    base_file = './sources/general_migration0016.csv'
+>>>>>>> 1357aa6a138b9dae904c5596a5f29c224606ed0e
     
     # general input migration
     filters = {}
@@ -53,7 +64,11 @@ if __name__ == "__main__":
         'Country'
     ]
     for name in text_cols:
+<<<<<<< HEAD
         general_input_df[name] = general_input_df[name].str.lower()
+=======
+        general_input_df[name] = general_input_df[name].str.strip().lower()
+>>>>>>> 1357aa6a138b9dae904c5596a5f29c224606ed0e
 
 
     # iterate and save in db
@@ -61,6 +76,7 @@ if __name__ == "__main__":
         # first check if the countries already exists
 
         # source
+<<<<<<< HEAD
         source_country = get_country(row['CO2'])
         if(not source_country):
             source_country = CountryModel(row['CO2'], row['Country of birth/nationality'])
@@ -86,6 +102,17 @@ if __name__ == "__main__":
         db.session.add(m)
         db.session.commit()
 
+=======
+        source_country = get_country(row['Country of birth/nationality'])
+        if(not source_country):
+            source_country = CountryModel(row['CO2'], row['Country of birth/nationality'])
+
+        # destination
+        dest_country = get_country(row['Country of birth/nationality'])
+        if(not dest_country):
+            dest_country = CountryModel(row['COU'], row['Country'])
+   
+>>>>>>> 1357aa6a138b9dae904c5596a5f29c224606ed0e
     '''
     # general output migration
     filters = {}

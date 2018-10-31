@@ -79,6 +79,9 @@ env.bak/
 venv.bak/
 
 # generated migrations
+<<<<<<< HEAD
 
 # editor settings
 .vscode/*
+=======
+>>>>>>> 1357aa6a138b9dae904c5596a5f29c224606ed0e
